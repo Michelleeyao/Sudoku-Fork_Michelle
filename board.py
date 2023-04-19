@@ -1,11 +1,18 @@
 import pygame
 from constant import *
+from cell import Cell
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
         self.height = height
         self.screen = screen
         self.difficulty = difficulty
+
+        # andrew
+        # sets a 2d list of cell objects correspondent to board size
+        self.cells = [[Cell('-', i, j, self.screen) for i in range(10)] for j in range(10)]
+        print(self.cells)
+
     def draw(self):
         # draw lines
         for i in range(1, 9):

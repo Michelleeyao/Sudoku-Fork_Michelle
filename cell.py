@@ -50,6 +50,7 @@ class Cell:
 
 
 # test
+"""
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 a = Cell('6', 4, 4, screen)
@@ -67,3 +68,4 @@ while running:
     pygame.display.update()
 
 pygame.quit()
+"""
