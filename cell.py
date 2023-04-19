@@ -52,7 +52,7 @@ class Cell:
         if self.value == '0':
             font = pygame.font.Font(None, 30)
             key = pygame.key.get_pressed()
-            value = None
+            val = None
             if key == pygame.K_1:
                 val = '1'
             elif key == pygame.K_2:
@@ -72,7 +72,7 @@ class Cell:
             elif key == pygame.K_9:
                 val = '9'
 
-            num_surf = font.render(str(value), 0, GREY)
+            num_surf = font.render(str(val), 0, GREY)
             num_rect = num_surf.get_rect(center = (x + self.width // 4, y + self.height // 4))
             self.screen.blit(num_surf, num_rect)
 
