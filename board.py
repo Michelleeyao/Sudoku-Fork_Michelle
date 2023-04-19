@@ -43,7 +43,7 @@ class Board:
         pass
 #test
 pygame.init()
-screen = pygame.display.set_mode((540, 540))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill((255, 255, 255))
 
 a = Board( 5, 1, screen, 5)
