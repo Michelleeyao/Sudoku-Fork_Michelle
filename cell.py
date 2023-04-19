@@ -1,4 +1,5 @@
 import pygame
+from constant import *
 
 pygame.init()
 
@@ -45,12 +46,11 @@ class Cell:
             self.screen.blit(num_surf, num_rect)
 
         if self.selected:
-            pygame.draw.rect(self.screen, (255, 0, 0), pygame.Rect(x, y, self.width, self.height), 5)
+            pygame.draw.rect(self.screen, RED, pygame.Rect(x, y, self.width, self.height), 5)
 
 
 # test
-screen = pygame.display.set_mode((600, 600))
-screen.fill((255, 255, 255))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 a = Cell('6', 4, 4, screen)
 b = Cell('5', 2, 2, screen)
@@ -61,7 +61,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((255, 255, 255))
+    screen.fill(BG_COLOR)
     a.draw()
     b.draw()
     pygame.display.update()
