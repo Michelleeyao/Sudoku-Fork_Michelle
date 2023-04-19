@@ -21,7 +21,7 @@ class Board:
                 self.cells[i][j].draw(self.screen)
                 """
     def select(self, row, col):
-    pass
+        pass
 
     def click(self, x, y):
         pass
@@ -41,3 +41,23 @@ class Board:
         pass
     def check_board(self):
         pass
+#test
+pygame.init()
+screen = pygame.display.set_mode((540, 540))
+screen.fill((255, 255, 255))
+
+a = Board( 5, 1, screen, 5)
+a.draw()
+pygame.display.update()
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill((255, 255, 255))
+    a.draw()
+    pygame.display.update()
+
+pygame.quit()
