@@ -48,7 +48,6 @@ class Cell:
         if self.selected:
             pygame.draw.rect(self.screen, RED, pygame.Rect(x, y, self.width, self.height), 5)
 
-
 # test
 """
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
