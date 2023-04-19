@@ -2,6 +2,8 @@ import pygame
 from constant import *
 from cell import Cell
 
+pygame.init()
+
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
@@ -12,7 +14,6 @@ class Board:
         # andrew
         # sets a 2d list of cell objects correspondent to board size
         self.cells = [[Cell('-', i, j, self.screen) for i in range(10)] for j in range(10)]
-        print(self.cells)
 
     def draw(self):
         # draw lines
@@ -60,13 +61,11 @@ class Board:
     def check_board(self):
         pass
 #test
-pygame.init()
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill((255, 255, 255))
 
 a = Board( 5, 1, screen, 5)
-a.draw()
-pygame.display.update()
+a1 = Cell('5', 1, 1, screen)
 
 running = True
 while running:
@@ -74,8 +73,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((255, 255, 255))
+    screen.fill(BG_COLOR)
     a.draw()
+    a1.draw()
     pygame.display.update()
 
 pygame.quit()

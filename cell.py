@@ -14,6 +14,7 @@ class Cell:
         self.width = 60
         self.height = 60
         self.locked = False
+        self.last_clicked = False
         if self.value != 0:
             self.locked = True
         else:
@@ -41,7 +42,7 @@ class Cell:
                 self.selected = not self.selected
             self.last_clicked = click
 
-        if int(self.value) != 0:
+        if self.value != '0':
             num_rect = num_surf.get_rect(center = (x + self.width // 2, y + self.height // 2))
             self.screen.blit(num_surf, num_rect)
 
@@ -49,10 +50,11 @@ class Cell:
             pygame.draw.rect(self.screen, RED, pygame.Rect(x, y, self.width, self.height), 5)
 
 # test
+
 """
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-a = Cell('6', 4, 4, screen)
+a = Cell('-', 4, 4, screen)
 b = Cell('5', 2, 2, screen)
 
 running = True
