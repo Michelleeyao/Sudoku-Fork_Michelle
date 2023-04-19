@@ -9,12 +9,22 @@ class Board:
     def draw(self):
         # draw lines
         for i in range(1, 9):
-            pygame.draw.line(self.screen, LINE_COLOR, (0, SQUARE_SIZE * i),
-                             (WIDTH, SQUARE_SIZE * i), LINE_WIDTH)
+            # defined box lines horizontal
+            if i % 3 == 0:
+                pygame.draw.line(self.screen, LINE_COLOR, (0, SQUARE_SIZE * i),
+                                 (WIDTH, SQUARE_SIZE * i), LINE_WIDTH * 2)
+            else:
+                pygame.draw.line(self.screen, LINE_COLOR, (0, SQUARE_SIZE * i),
+                                 (WIDTH, SQUARE_SIZE * i), LINE_WIDTH)
         # draw vertical lines
         for i in range(1, 9):
-            pygame.draw.line(self.screen, LINE_COLOR, (SQUARE_SIZE * i, 0),
-                             (SQUARE_SIZE * i, HEIGHT), LINE_WIDTH)
+            # defined box line vertical
+            if i % 3 == 0:
+                pygame.draw.line(self.screen, LINE_COLOR, (SQUARE_SIZE * i, 0),
+                                 (SQUARE_SIZE * i, HEIGHT), LINE_WIDTH * 2)
+            else:
+                pygame.draw.line(self.screen, LINE_COLOR, (SQUARE_SIZE * i, 0),
+                                 (SQUARE_SIZE * i, HEIGHT), LINE_WIDTH)
         """
         for i in range(self.rows):
             for j in range(self.cols):
