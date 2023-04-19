@@ -41,7 +41,7 @@ class Cell:
             self.last_clicked = click
 
         if int(self.value) != 0:
-            num_rect = num_surf.get_rect(center=(x + self.width // 2, y + self.height // 2))
+            num_rect = num_surf.get_rect(center = (x + self.width // 2, y + self.height // 2))
             self.screen.blit(num_surf, num_rect)
 
         if self.selected:
@@ -52,9 +52,8 @@ class Cell:
 screen = pygame.display.set_mode((600, 600))
 screen.fill((255, 255, 255))
 
-a = Cell('6', 1, 1, screen)
-a.draw()
-pygame.display.update()
+a = Cell('6', 4, 4, screen)
+b = Cell('5', 2, 2, screen)
 
 running = True
 while running:
@@ -64,6 +63,7 @@ while running:
 
     screen.fill((255, 255, 255))
     a.draw()
+    b.draw()
     pygame.display.update()
 
 pygame.quit()
