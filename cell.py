@@ -26,24 +26,44 @@ class Cell:
 
     def draw(self):
         font = pygame.font.Font(None, 50)
-        num_surf = font.render(self.value, 0, (0,255,0))
+        num_surf = font.render(str(self.value), 0, (0, 255, 0))
 
         x = self.col * self.width
         y = self.row * self.height
 
-        if self.selected:
-            pygame.draw.rect(self.screen, (255, 0, 0),
-                             pygame.Rect(self.col * 60, self.row * 60, 60, 60), 12)
-            self.selected = False
+        pos = pygame.mouse.get_pos()
+        click = pygame.mouse.get_pressed()[0]
 
-        if self.value != 0:
-            num_rect = num_surf.get_rect(
-                center = (self.width // 2 + self.width * self.col, self.height // 2 + self.height * self.row))
+        # Check mouse position and click on cell
+        if pygame.Rect(x, y, self.width, self.height).collidepoint(pos):
+            if click and not self.last_clicked:
+                self.selected = not self.selected
+            self.last_clicked = click
+
+        if int(self.value) != 0:
+            num_rect = num_surf.get_rect(center=(x + self.width // 2, y + self.height // 2))
             self.screen.blit(num_surf, num_rect)
 
+        if self.selected:
+            pygame.draw.rect(self.screen, (255, 0, 0), pygame.Rect(x, y, self.width, self.height), 5)
 
+
+# test
 screen = pygame.display.set_mode((600, 600))
 screen.fill((255, 255, 255))
 
 a = Cell('6', 1, 1, screen)
 a.draw()
+pygame.display.update()
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill((255, 255, 255))
+    a.draw()
+    pygame.display.update()
+
+pygame.quit()
