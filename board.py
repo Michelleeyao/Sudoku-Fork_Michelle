@@ -65,7 +65,8 @@ class Board:
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 a = Board( 5, 1, screen, 5)
-a1 = Cell('5', 1, 1, screen)
+a1 = Cell('0', 1, 1, screen)
+a2 = Cell('3', 3, 3, screen)
 
 running = True
 while running:
@@ -76,6 +77,7 @@ while running:
     screen.fill(BG_COLOR)
     a.draw()
     a1.draw()
+    a2.draw()
     pygame.display.update()
 
 pygame.quit()

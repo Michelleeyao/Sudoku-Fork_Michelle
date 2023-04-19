@@ -49,6 +49,33 @@ class Cell:
         if self.selected:
             pygame.draw.rect(self.screen, RED, pygame.Rect(x, y, self.width, self.height), 5)
 
+        if self.value == '0':
+            font = pygame.font.Font(None, 30)
+            key = pygame.key.get_pressed()
+            value = None
+            if key == pygame.K_1:
+                val = '1'
+            elif key == pygame.K_2:
+                val = '2'
+            elif key == pygame.K_3:
+                val = '3'
+            elif key == pygame.K_4:
+                val = '4'
+            elif key == pygame.K_5:
+                val = '5'
+            elif key == pygame.K_6:
+                val = '6'
+            elif key == pygame.K_7:
+                val = '7'
+            elif key == pygame.K_8:
+                val = '8'
+            elif key == pygame.K_9:
+                val = '9'
+
+            num_surf = font.render(str(value), 0, GREY)
+            num_rect = num_surf.get_rect(center = (x + self.width // 4, y + self.height // 4))
+            self.screen.blit(num_surf, num_rect)
+
 # test
 
 """
